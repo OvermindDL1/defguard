@@ -119,23 +119,6 @@ defmodule Defguard do
       guards = unquote(Macro.escape(when_ast)) |> Defguard.impl_defguard_refine_guards_by_heads(heads)
       {heads, guards}
     end]]}
-    # quote do
-    #   def unquote(name)() do
-    #     42
-    #   end
-    #   # def is_struct({struct, _, nil}) when is_atom(struct) do
-    #   #   struct_name_ast = quote(do: struct_name)
-    #   #   heads = [{struct, quote(do: %{__struct__: unquote(struct_name_ast)})}]
-    #   #   guards = quote(do: is_atom(unquote(struct_name_ast)))
-    #   #   {heads, guards}
-    #   # end
-    #   # def is_exception({struct, _, nil}) when is_atom(struct) do
-    #   #   struct_name_ast = quote(do: struct_name)
-    #   #   heads = [{struct, quote(do: %{__struct__: unquote(struct_name_ast), __exception__: true})}]
-    #   #   guards = quote(do: is_atom(unquote(struct_name_ast)))
-    #   #   {heads, guards}
-    #   # end
-    # end
     |> IO.inspect
   end
 end
